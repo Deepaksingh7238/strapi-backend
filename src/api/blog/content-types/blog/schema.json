@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "video_courses",
+  "collectionName": "blogs",
   "info": {
-    "singularName": "video-course",
-    "pluralName": "video-courses",
-    "displayName": "VideoCourse",
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Blog",
     "description": ""
   },
   "options": {
@@ -18,10 +18,7 @@
     "description": {
       "type": "richtext"
     },
-    "videoUrl": {
-      "type": "string"
-    },
-    "image": {
+    "coverImage": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -32,10 +29,21 @@
         "audios"
       ]
     },
-    "VideoTopic": {
-      "type": "component",
-      "repeatable": true,
-      "component": "video-topics.video-topics"
+    "blog_tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::blog-tag.blog-tag",
+      "inversedBy": "blogs"
+    },
+    "tag": {
+      "type": "enumeration",
+      "enum": [
+        "React",
+        "Angular",
+        "UI/UX",
+        "React Native",
+        "Ionic"
+      ]
     }
   }
 }
